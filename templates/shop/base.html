@@ -1,0 +1,30 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>{% block title %}Pecandu Coffee{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" type="text/css">
+  {% block stylesheet %}{% endblock %}
+
+</head>
+
+<body>
+{% block body %}
+{% include 'snippet/nav.html' %}
+{% include 'snippet/banner.html' %}
+
+  {% block content %}
+  {% endblock %}
+
+{% include 'snippet/carousel.html' %}
+<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+{% include 'snippet/footer.html' %}
+{% endblock body %}
+</body>
+</html>
+    

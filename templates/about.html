@@ -1,0 +1,38 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>{% block title %}Pecandu Coffee{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" type="text/css">
+  {% block stylesheet %}{% endblock %}
+
+</head>
+
+<body>
+{% block body %}
+{% include 'snippet/nav.html' %}
+
+  <div class="py-5">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md-7">
+          <h2 class="text-primary"><b>Sejarah Pecandu Coffee</b></h2>
+          <p class="">Berdirinya Pecandu Coffee diawali pada tahun 2013, ketika pencetusnya Syarif Hidayatullah seorang anggota pecinta alam di Bandung yang diberi kopi Arabica Jawa Barat (Java Preanger) oleh salah seorang seniornya di MAHATALA (Mahasiswa Pencinta
+            Alam). Hal tersebut terjadi secara berulang, dari kopi yang dicampur susu sampai kopi murni 100% yang diwarkan. Dari situ pencetus tertarik untuk mengulik dan mencari karakter kopi yang sesuai dengan yang di inginkan. Dan berpikir untuk membuat
+            suatu usaha penjualan kopi yang sudah di masak dalam bentuk biji atau sudah serbuk. </p>
+          <p class="">Setelah empat tahun lamanya mempelajari seluk-beluk kopi, rencana usaha itu mulai terealisasi di awal tahun 2017. Diambilnya nama pecandu coffee terinspirasi dari pencetus sendiri yang merasa ketagihan saat meminum kopi. Hingga sampai ini Pecandu
+            Coffee menjual produk roasted bean coffee dan memiliki outlet di Jl. Margajati NO.12 Cijaura Hilir – Bandung. </p>
+        </div>
+        <div class="col-md-5 align-self-center">
+          <img class="img-fluid d-block w-100 img-thumbnail" src="{% static 'img/slide-0.jpg' %}"> </div>
+      </div>
+    </div>
+  </div>
+{% include 'snippet/footer.html' %}
+{% endblock body %}
+</body>
+</html>
+    

@@ -1,0 +1,67 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+{% block title %}
+  
+{% endblock %}
+
+{% block content %}
+
+  <div class="py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="breadcrumb" style="margin-bottom:0px;margin-top:0px">
+            <li class="breadcrumb-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="breadcrumb-item active">Link</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-light text-dark py-2">
+    <div class="container">
+      <div class="row">
+        {% for product in products %}
+        <div class="col-md-4 my-3">
+          <div class="card">
+            <img class="img-fluid" src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="Card image">
+            <div class="card-body">
+              <h5><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h5>
+              <p class="card-text p-y-1">Harga @ Rp. {{ product.price }}</p>
+              <p class="card-text p-y-1">Stok barang {{ product.stock }}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+<!-- pagination -->
+<div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="pagination">
+            <li class="page-item">
+              <a class="page-link" href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" aria-label="Previous"> <span aria-hidden="true">Previous</span> <span class="sr-only"></span> </a>
+            </li>
+
+            <li class="page-item">
+             {{ object_list.number }}{{ object_list.paginator.num_pages }}.
+            </li>
+  
+            <li class="page-item">
+              <a class="page-link" href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" aria-label="Next"> <span aria-hidden="true">Next</span> <span class="sr-only"></span> </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
